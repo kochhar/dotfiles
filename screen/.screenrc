@@ -1,0 +1,25 @@
+# .screenrc 
+# configuration file for screen
+# author: shailesh kochhar
+# date: april 23, 2008
+#
+# ====================
+# general options 
+escape            ^zz           # set escape key to be z instead of a
+startup_message	  off           # no splash screen
+msgwait           1             # messages wait 1 second before disappearing
+defscrollback 	  3000		    # default is 100
+shelltitle	  "$ | bash"	# sets the title to be based on the shell command
+# ====================
+# hardstatus line always at the end
+#
+# explanation
+# "%{WK}%H |	: display hostname in white on gray
+# "%?%-w%? 	: if there are windows to the left (%-w) display them
+# %{+b KW} %n %t: current window number and title bold, purple on white
+# %{-b BK}    	: turn off bold, colors back to white on gray
+# %?%+w%?       : if there are windows to the right (%+w) display them
+# %=            : insert space to the end
+# %c %M %d, %Y  : HH:MM Month Day, Year
+#
+hardstatus alwayslastline "%{WK}%H | %?%-w%?%{+b Bw} %n %t %{-b WK}%?%+w%? %=| %c %M %d, %Y"
