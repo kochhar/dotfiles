@@ -1,0 +1,61 @@
+source /apollo/env/envImprovement/var/zshrc
+
+export BRAZIL_WORKSPACE_DEFAULT_LAYOUT=short
+
+# These already show up in the $PATH so commenting them out.
+# for f in envImprovement AmazonAwsCli OdinTools; do
+#    if [[ -d /apollo/env/$f ]]; then
+#        export PATH=$PATH:/apollo/env/$f/bin
+#    fi
+#done
+
+export AUTO_TITLE_SCREENS="NO"
+
+export PROMPT="
+%{$fg[white]%}(%D %*) <%?> [%~] $program %{$fg[default]%}
+%{$fg[cyan]%}%m %#%{$fg[default]%} "
+
+export RPROMPT=
+
+set-title() {
+    echo -e "\e]0;$*\007"
+}
+
+ssh() {
+    set-title $*;
+    /usr/bin/ssh -2 $*;
+    set-title $HOST;
+}
+
+alias e=emacs
+alias bb=brazil-build
+
+alias bba='brazil-build apollo-pkg'
+alias bre='brazil-runtime-exec'
+alias brc='brazil-recursive-cmd'
+alias bws='brazil ws'
+alias bwsuse='bws use --gitMode -p'
+alias bwscreate='bws create -n'
+alias bbr='brc brazil-build'
+alias bball='brc --allPackages'
+alias bbb='brc --allPackages brazil-build'
+alias bbra='bbr apollo-pkg'
+
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
+if [ -f ~/.zshrc-dev-dsk-post ]; then
+    source ~/.zshrc-dev-dsk-post
+fi
+
+if [ -f ~/.zshrc.amz ]; then
+    source ~/.zshrc.amz
+fi
+
+
+bindkey -e
+
+export PATH=$HOME/.toolbox/bin:$PATH
+
+export PATH=$HOME/.toolbox/bin:$PATH

@@ -1,0 +1,12 @@
+alias mkdir="mkdir -p"
+alias gitbr="git branch | grep '*' | cut -d '*' -f 2 | sed -e 's/^[ \t]*//'"
+alias ssh="ssh -A"
+alias sudo="sudo -H"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+# tmux management
+alias tmn="tmux -CC new -s"
+alias tma="tmux -CC attach -t"
+alias less="less -Mr"
+
+# error extraction from log files
+alias errex='gsed -nr ":main; /^[0-9]{1,2} [A-Za-z]{3,} [0-9]{4} [^[]* \[ERROR\]/ { :loop; p; n; /^[0-9]{1,2} [A-Za-z]{3,} [0-9]{4}/b main; b loop }"'

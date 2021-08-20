@@ -1,0 +1,5 @@
+# To initialise virtualenvwrapper
+export PROJECT_HOME=/Users/kochhs/workplace
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export WORKON_HOME=/Users/kochhs/workplace/venvs
+source /usr/local/bin/virtualenvwrapper.sh
