@@ -1,6 +1,6 @@
 [user]
 	name = Shailesh Kochhar
-	email = kochhs@amazon.com.
+	email = 
 [mergetool "smerge"]
 	cmd = smerge mergetool \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 	trustExitCode = true
