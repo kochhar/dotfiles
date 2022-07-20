@@ -1,0 +1,17 @@
+# setting PATH for Python 3 installed by brew
+export PATH=/usr/local/share/python:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# To export path to apps started from the dock
+lp=$(launchctl getenv PATH)
+launchctl setenv PATH $PATH:$lp
+
+# To initialise virtualenvwrapper
+export PROJECT_HOME=$HOME/workspace
+export WORKON_HOME=$HOME/workspace/venvs
+
+export BIN_HOME=/opt/homebrew/bin 
+export VIRTUALENVWRAPPER_PYTHON=$BIN_HOME/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=$BIN_HOME/virtualenv
+source $BIN_HOME/virtualenvwrapper.sh
