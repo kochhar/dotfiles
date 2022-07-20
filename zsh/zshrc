@@ -1,3 +1,5 @@
+eval $(/opt/homebrew/bin/brew shellenv)
+
 export AUTO_TITLE_SCREENS="NO"
 
 export PROMPT="
@@ -10,10 +12,23 @@ set-title() {
     echo -e "\e]0;$*\007"
 }
 
-ssh() {
+mssh() {
     set-title $*;
     /usr/bin/ssh -2 $*;
     set-title $HOST;
+}
+
+git-clone-path () {
+    repo=$1
+    url=$2
+    path=$3
+
+    git init "$repo"
+    cd "$repo"
+    git remote add -f origin "$url"
+    git config core.sparseCheckout true
+    echo "$path" >> .git/info/sparse-checkout
+    git pull origin master
 }
 
 alias e=emacs
@@ -26,13 +41,8 @@ if [ -f ~/.environ ]; then
     source ~/.environ
 fi
 
-if [ -f ~/.zshrc-dev-dsk-post ]; then
-    source ~/.zshrc-dev-dsk-post
+if [ -f ~/.completion.zsh ]; then
+    source ~/.completion.zsh
 fi
-
-if [ -f ~/.zshrc.amz ]; then
-    source ~/.zshrc.amz
-fi
-
 
 bindkey -e
